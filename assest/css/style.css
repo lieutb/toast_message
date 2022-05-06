@@ -1,0 +1,138 @@
+:root {
+    --success-color: #0ad817;
+    --error-color: #d80a0a;
+    --warning-color: #eae60c;
+}
+
+body {
+    font-size: 14px;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #fefefe;
+}
+
+#toast {
+    position: fixed;
+    top: 32px;
+    right: 35px;
+}
+
+.toast {
+    display: flex;
+    align-items: center;
+    max-width: 400px;
+    padding: 10px;
+    padding-left: 0;
+    margin: 10px 0;
+    box-shadow: 0 0 5px #eee;
+    border-left: 4px solid transparent;
+    background-color: #fff;
+    transition: all linear 0.3s;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(calc(100% + 35px));
+    } to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+.toast.success {
+    border-color: var(--success-color);
+}
+
+.toast.success .toast-icon {
+    color: var(--success-color);
+}
+
+.toast.error {
+    border-color: var(--error-color);
+}
+
+.toast.error .toast-icon {
+    color: var(--error-color);
+}
+
+.toast.warning {
+    border-color: var(--warning-color);
+}
+
+.toast.warning .toast-icon {
+    color: var(--warning-color);
+}
+
+.toast .toast-icon {
+    width: 50px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.toast .toast-content {
+    flex: auto;
+}
+
+.toast .toast-title {
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 3px;
+}
+
+.toast .toast-desc {
+    margin: 0;
+    font-size: 13px;
+    color: #aaa;
+    font-weight: normal;
+}
+
+.toast .toast-close {
+    width: 40px;
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+}
+
+.toast .toast-close i {
+    cursor: pointer;
+}
+
+.btn {
+    position: fixed;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    max-width: 600px;
+    margin: 0 auto;
+    transform: translate(-50%, -50%);
+}
+
+.btn span {
+    display: inline-block;
+    width: calc((100% / 3) - 23px);
+    box-shadow: 0 0 5px #eee;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    color: #eee;
+}
+
+.btn .btn-success {
+    background-color: var(--success-color);
+}
+
+.btn .btn-error {
+    background-color: var(--error-color);
+}
+
+.btn .btn-warning {
+    background-color: var(--warning-color);
+}

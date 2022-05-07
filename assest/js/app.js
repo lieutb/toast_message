@@ -13,7 +13,7 @@ function toast({ title = '', message = '', type = 'Success', duration = 3000 }) 
         const delay = (duration / 1000).toFixed(2)
         const toast = document.createElement('div')
 
-        const timeoutId = setTimeout(() => {
+        const autoRemoveId = setTimeout(() => {
             main.removeChild(toast)
         }, duration + 1000);
 
@@ -21,7 +21,7 @@ function toast({ title = '', message = '', type = 'Success', duration = 3000 }) 
             const close = e.target.closest('.toast-close')
             if (close) {
                 main.removeChild(toast)
-                clearTimeout(timeoutId)
+                clearTimeout(autoRemoveId)
             }
         }
 

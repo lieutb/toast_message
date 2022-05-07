@@ -13,6 +13,18 @@ function toast({ title = '', message = '', type = 'Success', duration = 3000 }) 
         const delay = (duration / 1000).toFixed(2)
         const toast = document.createElement('div')
 
+        const timeoutId = setTimeout(() => {
+            main.removeChild(toast)
+        }, duration + 1000);
+
+        toast.onclick = function (e) {
+            const close = e.target.closest('.toast-close')
+            if (close) {
+                main.removeChild(toast)
+                clearTimeout(timeoutId)
+            }
+        }
+
         toast.classList.add('toast', type)
         toast.style.animation = `slideInLeft ease .3s, fadeOut linear .5s ${delay}s forwards`
         toast.innerHTML = `
@@ -24,10 +36,6 @@ function toast({ title = '', message = '', type = 'Success', duration = 3000 }) 
             <div class="toast-close"><i class="fas fa-times"></i></div>
         `
         main.append(toast)
-
-        setTimeout(() => {
-            main.removeChild(toast)
-        }, duration + 1000);
     }
 }
 
